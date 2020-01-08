@@ -5,6 +5,10 @@ Web application for managing employee absences.
 
 <a href="https://travis-ci.org/timeoff-management/application"><img align="right" src="https://travis-ci.org/timeoff-management/application.svg?branch=master" alt="Build status" /></a>
 
+## About this fork
+
+This is a Ukrainian translation of the TimeOff.Management application (originally in English). Please feel free to contribute.
+
 ## Features
 
 **Multiple views of staff absences**
