@@ -2,22 +2,22 @@
 <div class="row">
   {{# unless leaves}}
   <div class="col-md-12 text-muted">
-    There are no leave requests yet.
+    Заяв на відпустку ще не було.
   </div>
   {{else}}
 
   <div class="col-md-12">
-    <p class="visible-xs-block"><em class="text-muted">Scroll table horizontally</em></p>
+    <p class="visible-xs-block"><em class="text-muted">Горизонтальна прокрутка таблиці</em></p>
     <div class="table-responsive">
     <table class="table table-hover user-requests-table">
       <thead>
         <tr>
-          <th>Dates (from <i class="fa fa-long-arrow-right"></i> to)</th>
-          <th>Type</th>
-          <th>Deducted</th>
-          <th>Approved by</th>
+          <th>Дати (з <i class="fa fa-long-arrow-right"></i> по)</th>
+          <th>Тип</th>
+          <th>Відраховано</th>
+          <th>Погоджено</th>
           <th></th>
-          <th><span class="pull-right">Status</span></th>
+          <th><span class="pull-right">Статус</span></th>
         </tr>
       </thead>
 
@@ -26,7 +26,7 @@
 
       <tr class="leave-request-row">
         <td data-tom-leave-dates="1">{{> leave_dates leave=this}}</td>
-        <td>{{ this.leave_type.name }}{{#if this.is_pended_revoke_leave}}<br>(pended revoke){{/if}}</td>
+        <td>{{ this.leave_type.name }}{{#if this.is_pended_revoke_leave}}<br>(роглядається відкликання){{/if}}</td>
         <td>{{ this.get_deducted_days_number }}</td>
         <td class="user-request-table-approver">{{#with this.approver}}{{this.full_name}}{{/with}}</td>
         <td>
@@ -34,19 +34,19 @@
           {{# unless this.is_pended_revoke_leave}}
           <form method="post" action="/requests/revoke/">
             <input type="hidden" value="{{this.id}}" name="request">
-            <button type="submit" class="pull-right btn btn-default btn-xs revoke-btn" title="Revoke leave request. Subject of approval."><i class="fa fa-trash"> Revoke</i></button>
+            <button type="submit" class="pull-right btn btn-default btn-xs revoke-btn" title="Відкликати заяву на відпустку. Потребує погодження."><i class="fa fa-trash"> Відкликати</i></button>
           </form>
           {{/unless}}
           {{else}}
             {{#if_equal this.userId ../logged_user.id }}
             <form method="post" action='/requests/cancel/'>
               <input type="hidden" value="{{this.id}}" name="request">
-              <button type="submit" class="pull-right btn btn-default btn-xs revoke-btn" title="Cancel leave request" value="cancel"><i class="fa fa-trash"> Cancel</i></button>
+              <button type="submit" class="pull-right btn btn-default btn-xs revoke-btn" title="Анулювати заяву на відпустку" value="cancel"><i class="fa fa-trash"> Анулювати</i></button>
             </form>
             {{/if_equal}}
           {{/if}}
         </td>
-        <td><span class="pull-right leave-request-row-status">{{#if this.is_new_leave }}Pending{{else}}{{#if this.is_approved_leave}}Approved{{else}}Rejected{{/if}}{{/if}}</span></td>
+        <td><span class="pull-right leave-request-row-status">{{#if this.is_new_leave }}На розгляді{{else}}{{#if this.is_approved_leave}}Погоджено{{else}}Відхилено{{/if}}{{/if}}</span></td>
       </tr>
 
       {{/ each }}

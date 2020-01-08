@@ -1,11 +1,11 @@
-Revoke leave request
+Відкликання заяви на відпустку
 =====
-<p>Hello {{#with approver }}{{this.full_name}}{{/with}},</p>
+<p>Вітаємо, {{#with approver }}{{this.full_name}}{{/with}},</p>
 
-<p><strong>{{#with requester}}{{this.full_name}}{{/with}} cancelled</strong> leave request <strong>{{>leave_request_detail leave=leave }}</strong>.</p>
+<p><strong>{{#with requester}}{{this.full_name}}{{/with}} анулював</strong> заяву на відпустку <strong>{{>leave_request_detail leave=leave }}</strong>.</p>
 
 {{> email/leave_comments comments=comments }}
 
-<p>Please visit {{> email/link href=(concatenate (get_application_domain) '/requests/') text='Pending requests' }} page to approve or reject pending requests.</p>
+<p>Будь ласка, перейдіть на сторінку {{> email/link href=(concatenate (get_application_domain) '/requests/') text='Заяви на розгляді' }}, щоб погодити або відхилити заяви на розгляді.</p>
 
-<p>Thanks</p>
+<p>Дякуємо</p>

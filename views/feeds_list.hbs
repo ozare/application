@@ -1,9 +1,9 @@
 
 {{> header }}
 
-<h1>My feeds</h1>
+<h1>Мої канали</h1>
 
-<p class="lead">Feeds for external calendars</p>
+<p class="lead">Канали для сторонніх календарів</p>
 
 {{> show_flash_messages }}
 
@@ -16,21 +16,21 @@
     <div class="row">
       <div class="col-md-12">
 
-        <p class="description-paragraph">Share your TimeOff.Management data with external calendar providers such as Microsoft Outlook, Apple Calendar (iCal) or Google Calendar.</p>
+        <p class="description-paragraph">Організуйте обмін даними між системою TimeOff.Management та сторонніми календарями, наприклад: Microsoft Outlook, Календар Apple (iCal) або Календар Google.</p>
 
-        <p class="description-paragraph">We provide following streams from:</p>
+        <p class="description-paragraph">Реалізовано передачу даних з наступних сторінок:</p>
         <p class="description-paragraph">
-          <a href="/calendar/">My Calendar</a> page - feeds all data from My Calendar page
+          <a href="/calendar/">Мій календар</a> - передача всіх даних зі сторінки Мій календар
         </p>
         {{# unless keep_team_view_hidden}}
         <p class="description-paragraph">
-          <a href="/calendar/teamview/">Team view</a> page - feeds Team view data for current month
+          <a href="/calendar/teamview/">Перегляд колективу</a> - передача даних зі сторінки Перегляд колективу за поточний місяць
         </p>
         {{/ unless}}
 
-        <p class="description-paragraph">To export particular feed into default calendar application just click on corresponding link.</p>
+        <p class="description-paragraph">Для експортування конкретного каналу в стандартну програму календаря просто натисніть на відповідне посилання.</p>
 
-        <p class="description-paragraph">Otherwise copy the link location and pass it to external application.</p>
+        <p class="description-paragraph">Або ж скопіюйте адресу посилання та перенесіть її у сторонню програму.</p>
 
       </div>
     </div>
@@ -39,7 +39,7 @@
 
       <div class="col-md-5 well">
         <form method="POST" action="/calendar/feeds/regenerate/">
-        <a href="webcal://{{current_host}}/feed/{{calendar_feed.feed_token}}/ical.ics">My calendar feed <i class="fa fa-rss"></i></a>
+        <a href="webcal://{{current_host}}/feed/{{calendar_feed.feed_token}}/ical.ics">Канал Мій календар <i class="fa fa-rss"></i></a>
 
         <input type="hidden" name="token" value="{{calendar_feed.feed_token}}"/>
         <button type="submit" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
@@ -49,7 +49,7 @@
       {{# unless keep_team_view_hidden }}
       <div class="col-md-5 col-md-offset-2 well">
         <form method="POST" action="/calendar/feeds/regenerate/">
-        <a href="webcal://{{current_host}}/feed/{{team_view_feed.feed_token}}/ical.ics">Team view feed <i class="fa fa-rss"></i></a>
+        <a href="webcal://{{current_host}}/feed/{{team_view_feed.feed_token}}/ical.ics">Канал Перегляд колективу <i class="fa fa-rss"></i></a>
 
         <input type="hidden" name="token" value="{{team_view_feed.feed_token}}"/>
         <button type="submit" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>

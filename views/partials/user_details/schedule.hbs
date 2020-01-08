@@ -7,14 +7,14 @@
   {{> user_details/breadcrumb employee=employee }}
 
   <div class="form-group">
-    <label for="" class="control-label">Schedule</label>
+    <label for="" class="control-label">Графік роботи</label>
 
     <p class="help-block">
       {{# with schedule }}
       {{# if (is_user_specific) }}
-        Current employee has <strong data-vpp="declare-user-specific-schedule">custom</strong> schedule.
+        Цей працівник має <strong data-vpp="declare-user-specific-schedule">окремий</strong> графік роботи.
       {{else}}
-        Current employee uses <strong><a data-vpp="link-to-company-schedule" href="/settings/general/">company wide</a></strong> schedule.
+        Цей працівник користується <strong><a data-vpp="link-to-company-schedule" href="/settings/general/">загальним</a></strong> графіком роботи.
       {{/if}}
       {{/with}}
     </p>
@@ -28,10 +28,10 @@
     <div class="pull-right">
     {{# with schedule }}
     {{# if (is_user_specific) }}
-      <button type="submit" name="revoke_user_specific_schedule" class="btn btn-default">Move employee to company wide schedule</button>
-      <button type="submit" name="save_user_specific_schedule" class="btn btn-success">Save employee specific schedule</button>
+      <button type="submit" name="revoke_user_specific_schedule" class="btn btn-default">Застосувати до працівника загальний графік компанії</button>
+      <button type="submit" name="save_user_specific_schedule" class="btn btn-success">Зберегти окремий графік працівника</button>
     {{else}}
-      <button type="submit" name="save_user_specific_schedule" class="btn btn-success">Override company wide schedule</button>
+      <button type="submit" name="save_user_specific_schedule" class="btn btn-success">Скасувати загальний графік компанії</button>
     {{/if}}
     {{/with}}
     </div>

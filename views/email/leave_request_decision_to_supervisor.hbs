@@ -1,9 +1,9 @@
-Leave request decision is made
+Рішення щодо заяви на відпустку прийнято
 =====
-<p>Hello <strong>{{#with approver }}{{this.full_name}}{{/with}}</strong>,<p>
+<p>Вітаємо, <strong>{{#with approver }}{{this.full_name}}{{/with}}</strong>,<p>
 
 {{> email/leave_comments comments=comments }}
 
-<p>You just processed {{#if was_pended_revoke}}cancellation of {{/if}}leave request {{>leave_request_detail leave=leave }} for {{#with requester}}{{this.full_name}}{{/with}}: to {{action}}.</p>
+<p>Ви щойно прийняли рішення щодо {{#if was_pended_revoke}}анулювання {{/if}}заяви на відпустку {{>leave_request_detail leave=leave }} для {{#with requester}}{{this.full_name}}{{/with}}: {{action}}.</p>
 
-<p>Thanks</p>
+<p>Дякуємо</p>

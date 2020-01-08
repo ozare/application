@@ -1,17 +1,17 @@
-New TimeOff.Management account for {{#with new_user }}{{this.full_name}}{{/with}}
+Новий обліковий запис TimeOff.Management для {{#with new_user }}{{this.full_name}}{{/with}}
 =====
-<p>Hello <strong>{{new_user.name}}</strong>,</p>
+<p>Вітаємо, <strong>{{new_user.name}}</strong>,</p>
 
-<p><strong>{{#with admin_user}}{{this.full_name}}{{/with}}</strong> just registered new account for you as an employee of <strong>{{company.name}}</strong>.</p>
+<p><strong>{{#with admin_user}}{{this.full_name}}{{/with}}</strong> щойно зареєстрував(-ла) новий обліковий запис для вас як працівника компанії <strong>{{company.name}}</strong>.</p>
 
-<p>Please contact <strong>{{admin_user.name}}</strong> about your new password and login at {{> email/link href=(get_application_domain) text="TimeOff.Management" }}</p>
+<p>Будь ласка, дізнайтесь у адміністратора <strong>{{admin_user.name}}</strong> свій пароль для входу в {{> email/link href=(get_application_domain) text="TimeOff.Management" }}</p>
 
-<p>Alternatively follow the link below to set a new password:
+<p>Або ж перейдіть за нижченаведеним посиланням, щоб встановити новий пароль:
 
 {{# with new_user ~}}
-{{> email/link href=(concatenate (get_application_domain) '/reset-password/?t=' (this.get_reset_password_token)) text='Set new password'}}
+{{> email/link href=(concatenate (get_application_domain) '/reset-password/?t=' (this.get_reset_password_token)) text='Встановити новий пароль'}}
 {{/ with }}
 
 </p>
 
-<p>Thanks</p>
+<p>Дякуємо</p>
